@@ -3,15 +3,17 @@
 
 # Minecraft Brainfuck Interpreter (v0.3)
 
+
+
 基于 Minecraft 数据包实现的 Brainfuck 解释器。支持 8-bit 单元格运算、动态跳转表预处理以及优化的执行逻辑。
 
 ## 📖 目录
 
-* [数据结构 (Storage)]()
-* [计分板变量 (Scoreboard)]()
-* [指令实现]()
-* [预处理逻辑]()
-* [运行逻辑与性能优化]()
+* [数据结构 (Storage)](#数据结构-Storage)
+* [计分板变量 (Scoreboard)](#计分板变量-Scoreboard)
+* [指令实现](#指令实现)
+* [预处理逻辑](#预处理逻辑)
+* [运行逻辑与性能优化](#运行逻辑与性能优化)
 
 ---
 
