@@ -1,0 +1,1 @@
+scoreboard players set #running brainfuck.re 0

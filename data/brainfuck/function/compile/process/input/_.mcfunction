@@ -1,0 +1,1 @@
+$execute store result storage brainfuck:re array[$(ptr)] int 1 run function brainfuck:compile/convert/ascii_to_score
