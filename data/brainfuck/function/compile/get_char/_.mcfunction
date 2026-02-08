@@ -1,1 +1,1 @@
-$data modify storage brainfuck:re cur_char set from storage brainfuck:re code.list[$(ip)]
+$data modify storage brainfuck:re cur_char set from storage brainfuck:re code.list[$(ir_ip)]

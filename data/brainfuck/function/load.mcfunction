@@ -1,5 +1,6 @@
 
 scoreboard objectives add brainfuck.re dummy
+scoreboard players set #256 brainfuck.re 256
 
 #schedule clear brainfuck:compile/get_char/
 #设置默认值
@@ -13,3 +14,6 @@ give @a written_book[written_book_content={author:"",title:"bf",pages:[\
 {text:"array\n",click_event:{action:"run_command",command:"function brainfuck:debug/array"}},\
 {text:"execute_count\n",click_event:{action:"run_command",command:"function brainfuck:debug/execute_count"}}\
 ]]}]
+
+
+tellraw @a {text:" ",insertion:"asdfredas"}

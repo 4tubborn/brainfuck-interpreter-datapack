@@ -35,9 +35,12 @@ scoreboard players set #code_length brainfuck.re 0
 scoreboard players set #ip brainfuck.re 0
 #function brainfuck:compile/preprocess/convert/string_to_list/
 #execute store success score #tmp_value brainfuck.re run function brainfuck:compile/preprocess/convert/string_to_list/
-
-execute unless function brainfuck:compile/preprocess/convert/string_to_list/ run return run function brainfuck:error/syntax/close_bracket
+scoreboard players set #last_char brainfuck.re -100
+scoreboard players set #ir_ip brainfuck.re 0
+execute unless function brainfuck:compile/preprocess/loop/ run return run function brainfuck:error/syntax/close_bracket
 execute unless data storage brainfuck:re {stack:[]} run return run function brainfuck:error/syntax/open_bracket
-
-scoreboard players set #ip brainfuck.re 0
+scoreboard players operation #code_length brainfuck.re = #ir_ip brainfuck.re
+#用于[+]型的优化
+scoreboard players set #match_pos brainfuck.re 0
+scoreboard players set #ir_ip brainfuck.re 0
 schedule function brainfuck:compile/get_char/ 1t
