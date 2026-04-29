@@ -5,19 +5,13 @@ execute if score #count brainfuck.re > #max_total_command_count brainfuck.re run
 execute if score #cmd_stop brainfuck.re matches 1 run return run function brainfuck:compile/get_char/end
 execute if score #ir_ip brainfuck.re >= #code_length brainfuck.re run return run function brainfuck:compile/get_char/end
 
-#say 1
 
-scoreboard players add #count brainfuck.re 1
-scoreboard players add #count_c brainfuck.re 1
+execute as @e[type=marker,tag=bf.compl,limit=80,distance=..0.1] run function brainfuck:compile/get_char/a
 
-data remove storage brainfuck:re cur_char
-function brainfuck:compile/convert/score_to_storage/ir_ip
-function brainfuck:compile/get_char/_ with storage brainfuck:re
 
-function brainfuck:compile/process/
-
-scoreboard players add #ir_ip brainfuck.re 1
+#tellraw @a [{text:"ip: "},{score:{name:"#ir_ip",objective:"brainfuck.re"}}]
 
 execute if score #count_c brainfuck.re <= #max_single_command_count brainfuck.re run return run function brainfuck:compile/get_char/
+scoreboard players add #stopwatch brainfuck.re 1
 schedule function brainfuck:compile/get_char/ 1t
 scoreboard players set #count_c brainfuck.re 0

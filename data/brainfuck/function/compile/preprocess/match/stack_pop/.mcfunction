@@ -5,7 +5,7 @@ function brainfuck:compile/convert/score_to_storage/ir_ip
 
 execute store result score #match_pos brainfuck.re run data modify storage brainfuck:re match_pos set from storage brainfuck:re stack[-1]
 data remove storage brainfuck:re stack[-1]
-execute if function brainfuck:compile/preprocess/match/reset/ run return run function brainfuck:compile/preprocess/loop/add_command/reset/
+execute if score #addsub brainfuck.re matches 1 run return run function brainfuck:compile/preprocess/add_command/reset/
 
 function brainfuck:compile/preprocess/match/stack_pop/set_jump_table with storage brainfuck:re
 scoreboard players add #ir_ip brainfuck.re 1

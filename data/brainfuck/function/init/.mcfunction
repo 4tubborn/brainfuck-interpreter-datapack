@@ -26,8 +26,7 @@ data modify storage brainfuck:re jump_table set value []
 data remove storage brainfuck:re stack
 data modify storage brainfuck:re stack set value []
 
-scoreboard players set #count brainfuck.re 0
-scoreboard players set #count_c brainfuck.re 0
+
 
 scoreboard players set #code_length brainfuck.re 0
 
@@ -37,10 +36,27 @@ scoreboard players set #ip brainfuck.re 0
 #execute store success score #tmp_value brainfuck.re run function brainfuck:compile/preprocess/convert/string_to_list/
 scoreboard players set #last_char brainfuck.re -100
 scoreboard players set #ir_ip brainfuck.re 0
-execute unless function brainfuck:compile/preprocess/loop/ run return run function brainfuck:error/syntax/close_bracket
-execute unless data storage brainfuck:re {stack:[]} run return run function brainfuck:error/syntax/open_bracket
-scoreboard players operation #code_length brainfuck.re = #ir_ip brainfuck.re
+
+scoreboard players set #add_value brainfuck.re 0
+scoreboard players set #addsub brainfuck.re 0
+scoreboard players set #shift_value brainfuck.re 0
+scoreboard players set #sync brainfuck.re 0
 #用于[+]型的优化
 scoreboard players set #match_pos brainfuck.re 0
 scoreboard players set #ir_ip brainfuck.re 0
+execute unless function brainfuck:compile/preprocess/loop/ run return run function brainfuck:error/syntax/close_bracket
+
+
+execute unless data storage brainfuck:re {stack:[]} run return run function brainfuck:error/syntax/open_bracket
+scoreboard players operation #code_length brainfuck.re = #ir_ip brainfuck.re
+
+
+scoreboard players set #ptr_target brainfuck.re 0
+
+scoreboard players set #count brainfuck.re 0
+scoreboard players set #count_c brainfuck.re 0
+scoreboard players set #ir_ip brainfuck.re 0
+
+scoreboard players set #stopwatch brainfuck.re 1
+
 schedule function brainfuck:compile/get_char/ 1t

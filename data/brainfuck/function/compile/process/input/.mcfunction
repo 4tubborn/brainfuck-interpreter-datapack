@@ -8,4 +8,4 @@ data modify storage brainfuck:re input set string storage brainfuck:re input 1
 
 #如果不能找到对应的输入则终止程序
 execute unless data storage brainfuck:re ascii_tmp run return run return run scoreboard players set #cmd_stop brainfuck.re 1
-function brainfuck:compile/process/input/_ with storage brainfuck:re
+function brainfuck:compile/process/input/_

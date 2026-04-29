@@ -12,12 +12,13 @@
 #data modify storage brainfuck:re cur_char.cmd set from storage brainfuck:re cur_char.list.cmd
 execute store result score #value brainfuck.re run data get storage brainfuck:re cur_char.value
 
-execute if data storage brainfuck:re {cur_char:{cmd:"+"}} run return run function brainfuck:compile/process/plus/
-execute if data storage brainfuck:re {cur_char:{cmd:"-"}} run return run function brainfuck:compile/process/minus/
-execute if data storage brainfuck:re {cur_char:{cmd:"<"}} run return run function brainfuck:compile/process/left_shift/
-execute if data storage brainfuck:re {cur_char:{cmd:">"}} run return run function brainfuck:compile/process/right_shift/
+#tellraw @a {storage:"brainfuck:re",nbt:"cur_char"}
+
+execute if data storage brainfuck:re {cur_char:{cmd:"add"}} run return run function brainfuck:compile/process/plus/
+execute if data storage brainfuck:re {cur_char:{cmd:"shift"}} run return run function brainfuck:compile/process/shift/
 execute if data storage brainfuck:re {cur_char:{cmd:"."}} run return run function brainfuck:compile/process/output/
 execute if data storage brainfuck:re {cur_char:{cmd:","}} run return run function brainfuck:compile/process/input/
 execute if data storage brainfuck:re {cur_char:{cmd:"["}} run return run function brainfuck:compile/process/open_bracket/
 execute if data storage brainfuck:re {cur_char:{cmd:"]"}} run return run function brainfuck:compile/process/close_bracket/
 execute if data storage brainfuck:re {cur_char:{cmd:"reset"}} run return run function brainfuck:compile/process/reset/
+return fail
